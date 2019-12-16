@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>War Camp</title>
+</head>
+<body>
+    <!--This div will hold the front page and start button-->
+    <div id = "startPage">
+        <button>Start</button>
+    </div>
+    <!--This div will hold the buttons to select list mode or match mode-->
+    <div id = "modeSelect">
+        <button>Build a List</button>
+        <button>Play a Match</button>
+    </div>
+    <!--This div will hold list mode-->
+    <div id = "listMode">
+        <div>
+            <button>Build a new list</button>
+            <div>
+                <h2>Choose a Faction</h2>
+                <button>Katerian Empire</button>
+            </div>
+            <button>Load a List</button>
+            <div id = "list">
+                <div>
+                    <h2 id = "points">Points: 0</h2>
+                </div>
+                <div id = "command">
+                    <h2>Commanders:</h2>
+                    <hr>
+                    <div id = "commandUnits">
+                        <div>
+                            <h3>Duke: 55 Points</h3>
+                            <h4 id = "dukeCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "duke" value = 55>+</button>
+                            <button onclick = pointCounter(this) id = "duke" value = -55>-</button>
+                        </div>
+                        <div>
+                            <h3>Count: 40 Points</h3>
+                            <h4 id = "countCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "count" value = 40>+</button>
+                            <button onclick = pointCounter(this) id = "count" value = -40>-</button>
+                        </div>
+                        <div>
+                            <h3>Knight-Captain: 40 Points</h3>
+                            <h4 id = "knightCapCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "knightCap" value = 30>+</button>
+                            <button onclick = pointCounter(this) id = "knightCap" value = -30>-</button>
+                        </div>
+                    </div>
+
+                    <div id = "commandUnitList">
+
+                    </div>
+                </div>
+
+                <div id = "infantry">
+                    <h2>Infantry:</h2>
+                    <hr>
+                    <div id = "infantryUnits">
+                        <div>
+                            <h3>Peasant Mob: 50 Points</h3>
+                            <h4 id = "peasantCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "peasant" value = 50>+</button>
+                            <button onclick = pointCounter(this) id = "peasant" value = -50>-</button>
+                        </div>
+                        <div>
+                            <h3>Militia: 75 Points</h3>
+                            <h4 id = "militiaCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "militia" value = 75>+</button>
+                            <button onclick = pointCounter(this) id = "militia" value = -75>-</button>
+                        </div>
+                        <div>
+                            <h3>Sergeants: 90 Points</h3>
+                            <h4 id = "sergeantsCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "sergeants" value = 90>+</button>
+                            <button onclick = pointCounter(this) id = "sergeants" value = -90>-</button>
+                        </div>
+                        <div>
+                            <h3>Heavy Infantry: 110 Points</h3>
+                            <h4 id = "heavyCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "heavy" value = 110>+</button>
+                            <button onclick = pointCounter(this) id = "heavy" value = -110>-</button>
+                        </div>
+                        <div>
+                            <h3>Foot Knights: 140 Points</h3>
+                            <h4 id = "footKnightCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "footKnight" value = 140>+</button>
+                            <button onclick = pointCounter(this) id = "footKnight" value = -140>-</button>
+                        </div>
+                    </div>
+
+                    <div id = "infantryUnitList">
+
+                    </div>
+                </div>
+
+                <div id = "ranged">
+                    <h2>Ranged:</h2>
+                    <hr>
+                    <div id = "rangedUnits">
+                        <div>
+                            <h3>Archers: 120 Points</h3>
+                            <h4 id = "archersCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "archers" value = 120>+</button>
+                            <button onclick = pointCounter(this) id = "archers" value = -120>-</button>
+                        </div>
+                        <div>
+                            <h3>Crossbowmen: 100 Points</h3>
+                            <h4 id = "crossbowmenCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "crossbowmen" value = 100>+</button>
+                            <button onclick = pointCounter(this) id = "crossbowmen" value = -100>-</button>
+                        </div>
+                    </div>
+                    <div id = "rangedUnitList">
+
+                    </div>
+                </div>
+
+                <div id = "cavalry">
+                    <h2>Cavalry:</h2>
+                    <hr>
+                    <div id = "cavalryUnits">
+                        <div>
+                            <h3>Scout Cavalry: 70 Points</h3>
+                            <h4 id = "scoutCavCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "scoutCav" value = 70>+</button>
+                            <button onclick = pointCounter(this) id = "scoutCav" value = -70>-</button>
+                        </div>
+                        <div>
+                            <h3>Mounted Sergeants: 120 Points</h3>
+                            <h4 id = "mountedSergeantCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "mountedSergeant" value = 120>+</button>
+                            <button onclick = pointCounter(this) id = "mountedSergeant" value = -120>-</button>
+                        </div>
+                        <div>
+                            <h3>Mounted Knights: 160 Points</h3>
+                            <h4 id = "mountedKnightsCounter" value = 0>#: 0</h4>
+                            <button onclick = pointCounter(this) id = "mountedKnights" value = 160>+</button>
+                            <button onclick = pointCounter(this) id = "mountedKnights" value = -160>-</button>
+                        </div>
+                    </div>
+                    <div id = "cavalryUnitList">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--This div will hold match mode-->
+    <div id = "matchMode">
+
+    </div>
+</body>
+<script src = javascript.js></script>
+</html>
