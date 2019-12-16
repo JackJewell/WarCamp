@@ -9,150 +9,153 @@
     <title>War Camp</title>
 </head>
 <body>
-    <!--This div will hold the front page and start button-->
-    <div id = "startPage">
-        <button onclick = begin()>Start</button>
-    </div>
-    <!--This div will hold the buttons to select list mode or match mode-->
-    <div id = "modeSelect" style = "display: none">
-        <button onclick = listMode()>Build a List</button>
-        <button>Play a Match</button>
-    </div>
-    <!--This div will hold list mode-->
-    <div id = "listMode" style = "display: none">
-        <div id = "listModeSelect">
-            <button onclick = listBuilder() id = "listButton">Build a new list</button>
+    <div class = "container">
+        <!--This div will hold the front page and start button-->
+        <div class = "row justify-content-center" id = "startPage">
+            <button type="button" class="btn btn-primary" onclick = begin()>Start</buttontype="button" class="btn btn-primary">
+        </div>
+        <!--This div will hold the buttons to select list mode or match mode-->
+        <div class = "row justify-content-center" id = "modeSelect" style = "display: none">
+            <button type="button" class="btn btn-primary" onclick = listMode()>Build a List</button>
+            <button type="button" class="btn btn-primary">Play a Match</buttontype="button" class="btn btn-primary">
+        </div>
+     <!--This div will hold list mode-->
+    
+        <div  id = "listMode" style = "display: none">
+            <div class = "row justify-content-center" id = "listModeSelect">
+                <button type="button" class="btn btn-primary" onclick = listBuilder() id = "listButton">Build a new list</button>
+                
+                <button type="button" class="btn btn-primary" id = "listLoader">Load a List</button>
+            </div>
+            <div id = "factionSelect" style = "display: none">
+                    <h2>Choose a Faction</h2>
+                    <button type="button" class="btn btn-primary" onclick = factionBuilder() id = "kateria">Katerian Empire</button>
+                </div>
+            <div id = "list" style = "display: none">
+                <div>
+                    <h2 id = "points">Points: 0</h2>
+                </div>
+                <div id = "commandDisplay">
+                    <h2>Commanders:</h2>
+                    <button type="button" class="btn btn-primary" onclick = unitDisplay(this) id = "command">+</button>
+                    <button type="button" class="btn btn-primary" onclick = unitHide(this) id = "command">-</button type="button" class="btn btn-primary">
+                    <hr>
+                    <div id = "commandUnits" style = "display: none">
+                        <div>
+                            <h3>Duke: 55 Points</h3>
+                            <h4 id = "dukeCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "duke" value = 55>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Count: 40 Points</h3>
+                            <h4 id = "countCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "count" value = 40>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Knight-Captain: 40 Points</h3>
+                            <h4 id = "knightCapCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "knightCap" value = 30>+</button type="button" class="btn btn-primary">
+                        </div>
+                    </div>
+
+                    <ul id = "commandUnitList">
+
+                    </ul>
+                </div>
+
+                <div id = "infantryDisplay">
+                    <h2>Infantry:</h2>
+                    <button type="button" class="btn btn-primary" onclick = unitDisplay(this) id = "infantry">+</button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" onclick = unitHide(this) id = "infantry">-</button type="button" class="btn btn-primary">
+                    <hr>
+                    <div id = "infantryUnits" style = "display: none">
+                        <div>
+                            <h3>Peasant Mob: 50 Points</h3>
+                            <h4 id = "peasantCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "peasant" value = 50>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Militia: 75 Points</h3>
+                            <h4 id = "militiaCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "militia" value = 75>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Sergeants: 90 Points</h3>
+                            <h4 id = "sergeantsCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "sergeants" value = 90>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Heavy Infantry: 110 Points</h3>
+                            <h4 id = "heavyCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "heavy" value = 110>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Foot Knights: 140 Points</h3>
+                            <h4 id = "footKnightCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "footKnight" value = 140>+</button type="button" class="btn btn-primary">
+                        </div>
+                    </div>
+
+                    <ul id = "infantryUnitList">
+
+                    </ul>
+                </div>
+
+                <div id = "rangedDisplay">
+                    <h2>Ranged:</h2>
+                    <button type="button" class="btn btn-primary" onclick = unitDisplay(this) id = "ranged">+</button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" onclick = unitHide(this) id = "ranged">-</button type="button" class="btn btn-primary">
+                    <hr>
+                    <div id = "rangedUnits" style = "display: none">
+                        <div>
+                            <h3>Archers: 120 Points</h3>
+                            <h4 id = "archersCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "archers" value = 120>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Crossbowmen: 100 Points</h3>
+                            <h4 id = "crossbowmenCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "crossbowmen" value = 100>+</button type="button" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <ul id = "rangedUnitList">
+
+                    </ul>
+                </div>
+
+                <div id = "cavalryDisplay">
+                    <h2>Cavalry:</h2>
+                    <button type="button" class="btn btn-primary" onclick = unitDisplay(this) id = "cavalry">+</button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" onclick = unitHide(this) id = "cavalry">-</button type="button" class="btn btn-primary">
+                    <hr>
+                    <div id = "cavalryUnits" style = "display: none">
+                        <div>
+                            <h3>Scout Cavalry: 70 Points</h3>
+                            <h4 id = "scoutCavCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "scoutCav" value = 70>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Mounted Sergeants: 120 Points</h3>
+                            <h4 id = "mountedSergeantCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "mountedSergeant" value = 120>+</button type="button" class="btn btn-primary">
+                        </div>
+                        <div>
+                            <h3>Mounted Knights: 160 Points</h3>
+                            <h4 id = "mountedKnightsCounter" value = 0>#: 0</h4>
+                            <button type="button" class="btn btn-primary" onclick = pointCounter(this,1) id = "mountedKnights" value = 160>+</button type="button" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <ul id = "cavalryUnitList">
+
+                    </ul>
+                </div>
+            </div>
             
-            <button id = "listLoader">Load a List</button>
         </div>
-        <div id = "factionSelect" style = "display: none">
-                <h2>Choose a Faction</h2>
-                <button onclick = factionBuilder() id = "kateria">Katerian Empire</button>
-            </div>
-        <div id = "list" style = "display: none">
-            <div>
-                <h2 id = "points">Points: 0</h2>
-            </div>
-            <div id = "commandDisplay">
-                <h2>Commanders:</h2>
-                <button onclick = unitDisplay(this) id = "command">+</button>
-                <button onclick = unitHide(this) id = "command">-</button>
-                <hr>
-                <div id = "commandUnits" style = "display: none">
-                    <div>
-                        <h3>Duke: 55 Points</h3>
-                        <h4 id = "dukeCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "duke" value = 55>+</button>
-                    </div>
-                    <div>
-                        <h3>Count: 40 Points</h3>
-                        <h4 id = "countCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "count" value = 40>+</button>
-                    </div>
-                    <div>
-                        <h3>Knight-Captain: 40 Points</h3>
-                        <h4 id = "knightCapCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "knightCap" value = 30>+</button>
-                    </div>
-                </div>
+        <!--This div will hold match mode-->
+        <div id = "matchMode" style = "display: none">
 
-                <ul id = "commandUnitList">
-
-                </ul>
-            </div>
-
-            <div id = "infantryDisplay">
-                <h2>Infantry:</h2>
-                <button onclick = unitDisplay(this) id = "infantry">+</button>
-                <button onclick = unitHide(this) id = "infantry">-</button>
-                <hr>
-                <div id = "infantryUnits" style = "display: none">
-                    <div>
-                        <h3>Peasant Mob: 50 Points</h3>
-                        <h4 id = "peasantCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "peasant" value = 50>+</button>
-                    </div>
-                    <div>
-                        <h3>Militia: 75 Points</h3>
-                        <h4 id = "militiaCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "militia" value = 75>+</button>
-                    </div>
-                    <div>
-                        <h3>Sergeants: 90 Points</h3>
-                        <h4 id = "sergeantsCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "sergeants" value = 90>+</button>
-                    </div>
-                    <div>
-                        <h3>Heavy Infantry: 110 Points</h3>
-                        <h4 id = "heavyCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "heavy" value = 110>+</button>
-                    </div>
-                    <div>
-                        <h3>Foot Knights: 140 Points</h3>
-                        <h4 id = "footKnightCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "footKnight" value = 140>+</button>
-                    </div>
-                </div>
-
-                <ul id = "infantryUnitList">
-
-                </ul>
-            </div>
-
-            <div id = "rangedDisplay">
-                <h2>Ranged:</h2>
-                <button onclick = unitDisplay(this) id = "ranged">+</button>
-                <button onclick = unitHide(this) id = "ranged">-</button>
-                <hr>
-                <div id = "rangedUnits" style = "display: none">
-                    <div>
-                        <h3>Archers: 120 Points</h3>
-                        <h4 id = "archersCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "archers" value = 120>+</button>
-                    </div>
-                    <div>
-                        <h3>Crossbowmen: 100 Points</h3>
-                        <h4 id = "crossbowmenCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "crossbowmen" value = 100>+</button>
-                    </div>
-                </div>
-                <ul id = "rangedUnitList">
-
-                </ul>
-            </div>
-
-            <div id = "cavalryDisplay">
-                <h2>Cavalry:</h2>
-                <button onclick = unitDisplay(this) id = "cavalry">+</button>
-                <button onclick = unitHide(this) id = "cavalry">-</button>
-                <hr>
-                <div id = "cavalryUnits" style = "display: none">
-                    <div>
-                        <h3>Scout Cavalry: 70 Points</h3>
-                        <h4 id = "scoutCavCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "scoutCav" value = 70>+</button>
-                    </div>
-                    <div>
-                        <h3>Mounted Sergeants: 120 Points</h3>
-                        <h4 id = "mountedSergeantCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "mountedSergeant" value = 120>+</button>
-                    </div>
-                    <div>
-                        <h3>Mounted Knights: 160 Points</h3>
-                        <h4 id = "mountedKnightsCounter" value = 0>#: 0</h4>
-                        <button onclick = pointCounter(this,1) id = "mountedKnights" value = 160>+</button>
-                    </div>
-                </div>
-                <ul id = "cavalryUnitList">
-
-                </ul>
-            </div>
         </div>
-        
-    </div>
-    <!--This div will hold match mode-->
-    <div id = "matchMode" style = "display: none">
-
     </div>
 </body>
 <script src = javascript.js></script>
