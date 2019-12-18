@@ -1,0 +1,76 @@
+#startPage{
+    margin-top: 90%;
+}
+
+#modeSelect{
+    margin-left: 30%;
+    margin-top: 90%;
+}
+
+#listModeSelect{
+    margin-top: 90%;
+}
+
+#points{
+    margin: 10px;
+}
+
+#list{
+    margin-top: 20px;
+    background-color: #c7a879;
+    border: solid;
+    border-width: 3px;
+    border-color: #1c1c1d;
+    border-radius: 3px;
+
+    box-shadow:
+    0 0 0 5px #b48319,
+    0 0 0 8px #1c1c1d;
+}
+
+.unitDisplay{
+    margin: 10px;
+}
+
+.crownBtn{
+    background-color: #a3a7ad;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #2c250f;
+    border-radius: 3px;
+    font-family: 'Germania One', cursive;
+}
+
+body{
+    background-color: #4b0505;
+}
+
+hr{
+    border-style: solid;
+    border-width: 3px;
+    border-color: #2c250f;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Germania One', cursive;
+}
+
+.unitBtn{
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.unitCld{
+    display: inline-block;
+}
+
+.unitName{
+    margin: 10px;
+}
+
+.unitClsr{
+    margin: 6px;
+    position: absolute;
+    right: 10%;
+}

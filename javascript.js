@@ -89,32 +89,38 @@ function listAdder(unitId,pointsData){
 
     let itemId;
     let listIdVar = "#"+listType;
-    let newItem = $("<li></li>");
-    newItem.text(unitId);
+    let newItem = $("<div></div>");
     switch(listType){
         case "commandUnitList":
             itemId = listType+numCommand;
             break;
         case "infantryUnitList":
-            itemId = listType+numCommand;
+            itemId = listType+numInfantry;
             break;
         case "rangedUnitList":
-            itemId = listType+numCommand;
+            itemId = listType+numRanged;
             break;
         case "cavalryUnitList":
-            itemId = listType+numCommand;
+            itemId = listType+numCavalry;
             break;
         default:
             break;
     }
+    newItem.attr("class","crownBtn unitBtn");
     newItem.attr("id",itemId);
     $(listIdVar).append(newItem);
     let negPoints = pointsData*-1;
+
+    let newText = $("<p></p>");
+    newText.text(unitId);
+    newText.attr("class","unitCld unitName");
+    $("#"+itemId).append(newText);
 
     let newButton = $("<button></button>");
     newButton.text("X");
     newButton.attr("onclick","itemRemove(this)");
     newButton.attr("data-id",itemId);
+    newButton.attr("class","crownBtn unitCld unitClsr");
     newButton.attr("data-unitType",unitId);
     newButton.attr("value",negPoints);
     $("#"+itemId).append(newButton);
