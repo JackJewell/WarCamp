@@ -13,9 +13,13 @@
 <body>
     <div class = "container" id="wrapper">
         <!--This div will hold the front page and start button-->
-        <div class = "row justify-content-center" id = "startPage">
-            <img src = "assets/images/crown.png" alt = "CrownBreaker">
-            <button type="button" class="btn crownBtn" onclick = begin()>Start</button>
+        <div class = "row" id = "startPage">
+            <div class = "col-12">
+                <img src = "assets/images/crown.png" alt = "CrownBreaker" id = "crownImg">
+            </div>
+            <div class = "col-12">
+                <button type="button" class="btn crownBtn" id = "startBtn" onclick = begin()>Start</button>
+            </div>
         </div>
         <!--This div will hold the buttons to select list mode or match mode-->
         <div class = "row justify-content-center" id = "modeSelect" style = "display: none">
