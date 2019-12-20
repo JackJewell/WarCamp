@@ -12,6 +12,10 @@
 </head>
 <body>
     <div class = "container" id="wrapper">
+
+        <div class = "row justify-content-center" id = "pageHead">
+                <img src = "assets/images/crown.png" alt = "CrownBreaker" id = "crownImgHead">
+        </div>
         <!--This div will hold the front page and start button-->
         <div class = "row" id = "startPage">
             <div class = "col-12">
@@ -31,14 +35,14 @@
     
         <div  id = "listMode" style = "display: none">
             <div class = "row justify-content-center" id = "listModeSelect">
-                <button type="button" class="btn crownBtn" onclick = listBuilder() id = "listButton">Build a new list</button>
-                <br>
-                <button type="button" class="btn crownBtn" id = "listLoader">Load a List</button>
+                    <button type="button" class="btn crownBtn" onclick = listBuilder() id = "listButton">Build a new list</button>
+                    <br>
+                    <button type="button" class="btn crownBtn" id = "listLoader">Load a List</button>
             </div>
             <div id = "factionSelect" class = "row justify-content-center" style = "display: none">
-                    <h2>Choose a Faction</h2>
+                    <u><h2 id = "factionHeader">Choose a Faction</h2></u>
                     <button type="button" class="btn crownBtn" onclick = buildList() id = "kateria">Katerian Empire</button>
-                </div>
+            </div>
             <div id = "list" style = "display: none">
                 <div>
                     <h2 id = "points">Points: 0</h2>
@@ -51,7 +55,7 @@
                     <div id = "commandUnits" style = "display: none">
                         
                     </div>
-
+                    <hr>
                     <div id = "commandUnitList">
 
                     </div>
@@ -65,7 +69,7 @@
                     <div id = "infantryUnits" style = "display: none">
                        
                     </div>
-
+                    <hr>
                     <div id = "infantryUnitList">
 
                     </div>
@@ -79,6 +83,7 @@
                     <div id = "rangedUnits" style = "display: none">
                         
                     </div>
+                    <hr>
                     <div id = "rangedUnitList">
 
                     </div>
@@ -92,6 +97,7 @@
                     <div id = "cavalryUnits" style = "display: none">
                            
                     </div>
+                    <hr>
                     <div id = "cavalryUnitList">
 
                     </div>

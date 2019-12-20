@@ -43,6 +43,7 @@ function buildList(){
     $("#list").attr("style","display: block");
     katerianList.forEach(function(returnedVar){
         let type = returnedVar.type;
+        let posVar = returnedVar.position;
         let title = returnedVar.title;
         let points = returnedVar.points;
         let idVar = returnedVar.name;
@@ -70,7 +71,7 @@ function buildList(){
         headerVar.text(title+": "+points);
 
         let counterVar = $("<h4></h4>");
-        counterVar.attr("id",name+"Counter");
+        counterVar.attr("id", idVar+"Counter");
         counterVar.attr("value",0);
         counterVar.text("#: 0");
 
@@ -79,7 +80,9 @@ function buildList(){
         buttonVar.attr("id",idVar);
         buttonVar.attr("type","button");
         buttonVar.attr("class","btn crownBtn");
-        buttonVar.attr("onclick","pointCounter(this,1)");
+        buttonVar.attr("data-unitType",type);
+        buttonVar.attr("data-unitPosition",posVar);
+        buttonVar.attr("onclick",'pointCounter(this,1)');
         buttonVar.attr("value",points);
 
         $("#"+outDivId).append(headerVar);
@@ -114,21 +117,23 @@ function pointCounter(buttonId,typeOfCall){
         }
         $(counterId).val(numUnits);
         $(counterId).text("#: "+numUnits);
-        listAdder(buttonId.id,pointsAdder);
+        let unitClass = buttonId.getAttribute("data-unitType")
+        let unitPosition = buttonId.getAttribute("data-unitPosition")
+        listAdder(buttonId.id,unitClass,pointsAdder,unitPosition);
     }else{
 
     }
 }
 
-function listAdder(unitId,pointsData){
+function listAdder(unitId,unitClassVar,pointsData,posNum){
     let listType;
-    if(unitId === "duke"||unitId === "count"||unitId === "knightCap"){
+    if(unitClassVar === "command"){
         listType = "commandUnitList";
         numCommand++;
-    }else if (unitId === "peasant"||unitId === "militia"||unitId === "sergeants"||unitId === "heavy"||unitId === "footKnight"){
+    }else if (unitClassVar === "infantry"){
         listType = "infantryUnitList";
         numInfantry++;
-    }else if (unitId === "archers"||unitId === "crossbowmen"){
+    }else if (unitClassVar === "ranged"){
         listType = "rangedUnitList";
         numRanged++;
     }else{
@@ -159,9 +164,9 @@ function listAdder(unitId,pointsData){
     newItem.attr("id",itemId);
     $(listIdVar).append(newItem);
     let negPoints = pointsData*-1;
-
+    let unitTitle = katerianList[posNum].title;
     let newText = $("<p></p>");
-    newText.text(unitId);
+    newText.text(unitTitle);
     newText.attr("class","unitCld unitName");
     $("#"+itemId).append(newText);
 
@@ -191,6 +196,7 @@ function itemRemove(item){
 
 let katerianList = [
     duke = {
+        position: 0,
        name: "duke",
        title: "Duke",
        points: 55,
@@ -220,6 +226,7 @@ let katerianList = [
    },
 
     count = {
+        position: 1,
        name: "count",
        title: "Count",
        points: 40,
@@ -248,6 +255,7 @@ let katerianList = [
    },
 
     knightCap = {
+        position: 2,
        name: "knightCap",
        title: "Knight-Captain",
        points: 30,
@@ -276,6 +284,7 @@ let katerianList = [
    },
 
     peasant = {
+        position: 3,
        name: "peasant",
        title: "Peasant Mob",
        points: 50,
@@ -303,6 +312,7 @@ let katerianList = [
    },
 
     militia = {
+        position: 4,
        name: "militia",
        title: "Militia",
        points: 75,
@@ -331,6 +341,7 @@ let katerianList = [
    },
 
     sergeants = {
+        position: 5,
        name: "sergeants",
        title: "Sergeants",
        points: 90,
@@ -366,6 +377,7 @@ let katerianList = [
    },
 
     heavyInf = {
+        position: 6,
        name: "heavyInf",
        title: "Heavy Infantry",
        points: 110,
@@ -399,6 +411,7 @@ let katerianList = [
    },
 
     footKnights = {
+        position: 7,
        name: "footKnights",
        title: "Foot Knights",
        points: 130,
@@ -431,6 +444,7 @@ let katerianList = [
    },
 
     archers = {
+        position: 8,
        name: "archers",
        title: "Archers",
        points: 120,
@@ -459,6 +473,7 @@ let katerianList = [
    },
 
     crossbowmen = {
+        position: 9,
        name: "crossbowmen",
        title: "Crossbowmen",
        points: 100,
@@ -487,6 +502,7 @@ let katerianList = [
    },
 
     scoutCav = {
+        position: 10,
        name: "scoutCav",
        title: "Scout Cavalry",
        points: 70,
@@ -516,6 +532,7 @@ let katerianList = [
    },
 
     mountedSerg = {
+        position: 11,
        name: "mountedSerg",
        title: "Mounted Sergeants",
        points: 120,
@@ -545,6 +562,7 @@ let katerianList = [
    },
 
     mountedKnights = {
+        position: 12,
        name: "mountedKnights",
        title: "Mounted Knights",
        points: 160,
